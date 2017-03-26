@@ -1,0 +1,26 @@
+[user]
+	name = Javi Palacios
+	email = javi@fjp.es
+
+[core]
+	editor = vim
+
+[diff]
+	tool = vimdiff
+
+[merge]
+    tool = vimmerge
+
+[alias]
+    this = !git init && git add . && git commit -m \"Initial commit\"
+    hide = !git update-index --assume-unchanged
+    unhide = !git update-index --no-assume-unchanged
+		hidden = !git ls-files -v | grep --color "^h" | cut -c 3-
+    skip = !git update-index --skip-worktree
+    noskip = !git update-index --no-skip-worktree
+		skipped = !git ls-files -v | grep --color "^S" | cut -c 3-
+    ignore = !sh -c 'echo $1 >> .gitignore' -
+		ignored = !cat .gitignore
+
+[color]
+    ui = always
