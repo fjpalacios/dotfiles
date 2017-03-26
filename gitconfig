@@ -1,12 +1,12 @@
 [user]
-	name = Javi Palacios
-	email = javi@fjp.es
+    name = Javi Palacios
+    email = javi@fjp.es
 
 [core]
-	editor = vim
+    editor = vim
 
 [diff]
-	tool = vimdiff
+    tool = vimdiff
 
 [merge]
     tool = vimmerge
