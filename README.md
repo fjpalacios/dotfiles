@@ -1,4 +1,4 @@
-# Blog
+# Dotfiles
 
 This is a backup of all my configuration files.
 
