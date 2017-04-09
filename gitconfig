@@ -1,6 +1,7 @@
 [user]
     name = Javi Palacios
     email = javi@fjp.es
+    signingkey = 65A58C24
 
 [core]
     editor = vim
@@ -22,6 +23,7 @@
     ignore = !sh -c 'echo $1 >> .gitignore' -
     ignored = !cat .gitignore
     lod = !git log --pretty=oneline --decorate=auto --abbrev-commit
+    c = commit -S
 
 [color]
     ui = always
