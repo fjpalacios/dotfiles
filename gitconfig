@@ -13,7 +13,7 @@
     tool = vimmerge
 
 [alias]
-    this = !git init && git add . && git commit -m \"Initial commit\"
+    this = !git init && git add . && git commit -S -m \"Initial commit\"
     hide = !git update-index --assume-unchanged
     unhide = !git update-index --no-assume-unchanged
     hidden = !git ls-files -v | grep --color "^h" | cut -c 3-

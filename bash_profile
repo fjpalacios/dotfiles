@@ -62,6 +62,7 @@ export PS1;
 export PS2="\[${yellow}\]â \[${reset}\]";
 
 alias python='python3.6'
+alias pip3='python -m pip $1'
 alias c='cd ~/Desktop/programación/C'
 alias py='cd ~/Desktop/programación/Python'
 alias ja='cd ~/Desktop/programación/Java'
