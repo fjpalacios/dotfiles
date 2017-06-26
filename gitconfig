@@ -22,8 +22,14 @@
     skipped = !git ls-files -v | grep --color "^S" | cut -c 3-
     ignore = !sh -c 'echo $1 >> .gitignore' -
     ignored = !cat .gitignore
-    lod = !git log --pretty=oneline --decorate=auto --abbrev-commit
+    lod = !git log --oneline --decorate --abbrev-commit --graph
     c = commit -S
 
 [color]
     ui = always
+
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
