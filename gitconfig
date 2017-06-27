@@ -25,8 +25,8 @@
     lod = log --oneline --decorate --abbrev-commit --graph
     c = commit -S
     co = checkout
-    cb = co -b
-    cd = co -d
+    cb = checkout -b
+    cd = branch -d
 
 [color]
     ui = always
