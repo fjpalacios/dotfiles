@@ -14,16 +14,19 @@
 
 [alias]
     this = !git init && git add . && git commit -S -m \"Initial commit\"
-    hide = !git update-index --assume-unchanged
-    unhide = !git update-index --no-assume-unchanged
+    hide = update-index --assume-unchanged
+    unhide = update-index --no-assume-unchanged
     hidden = !git ls-files -v | grep --color "^h" | cut -c 3-
-    skip = !git update-index --skip-worktree
-    noskip = !git update-index --no-skip-worktree
+    skip = update-index --skip-worktree
+    noskip = update-index --no-skip-worktree
     skipped = !git ls-files -v | grep --color "^S" | cut -c 3-
     ignore = !sh -c 'echo $1 >> .gitignore' -
     ignored = !cat .gitignore
-    lod = !git log --oneline --decorate --abbrev-commit --graph
+    lod = log --oneline --decorate --abbrev-commit --graph
     c = commit -S
+    co = checkout
+    cb = co -b
+    cd = co -d
 
 [color]
     ui = always
