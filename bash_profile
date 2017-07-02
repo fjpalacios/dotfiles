@@ -62,7 +62,7 @@ export PS1;
 export PS2="\[${yellow}\]â \[${reset}\]";
 
 alias python='python3.6'
-alias pip3='python -m pip $1'
+alias pip='python -m pip $1'
 alias c='cd ~/Desktop/programación/C'
 alias pr='cd ~/Desktop/programación'
 alias py='cd ~/Desktop/programación/Python'
@@ -76,6 +76,9 @@ alias sassw='sass --watch scss:css --style compressed'
 
 export PATH=$PATH:~/.nexustools
 export PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"
-export PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
 export PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
 export PATH="/usr/local/opt/gettext/bin:$PATH"
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
