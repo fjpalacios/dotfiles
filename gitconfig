@@ -25,6 +25,7 @@
     ignored = !cat .gitignore
     lod = log --oneline --decorate --abbrev-commit --graph
     c = commit -S
+    m = merge --no-ff
     co = checkout
     cb = checkout -b
     cd = branch -d
@@ -33,10 +34,10 @@
     ui = always
 
 [filter "lfs"]
-	process = git-lfs filter-process
-	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 
 [gpg]
     program = /usr/local/bin/gpg
