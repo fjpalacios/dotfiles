@@ -49,6 +49,12 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 " Twig syntax highlighting
 Plugin 'evidens/vim-twig'
+" Emmet
+Plugin 'mattn/emmet-vim'
+" Sublime Text style multiple selectors
+Plugin 'terryma/vim-multiple-cursors'
+" EditorConfig
+Plugin 'editorconfig/editorconfig-vim'
 
 call vundle#end()
 filetype plugin indent on
