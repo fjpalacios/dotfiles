@@ -13,8 +13,6 @@ set softtabstop=4
 set shiftwidth=4
 " turn tabs into spaces
 set expandtab
-" new lines inherit the identation of previous lines
-set autoindent
 " highlight parenthesis-like characters
 set showmatch
 " improve Vim's search option
