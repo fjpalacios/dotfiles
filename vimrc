@@ -19,6 +19,7 @@ set number
 set relativenumber
 " Turn on line wrapping
 set wrap
+set colorcolumn=80
 " Number of visual spaces per tab
 set tabstop=4
 " Number of spaces in tab when editting
