@@ -9,10 +9,15 @@ source $ZSH/oh-my-zsh.sh
 
 alias python='python3.6'
 alias pip='python -m pip $1'
-alias c='cd /Volumes/media/programación/C'
-alias pr='cd /Volumes/media/programación'
-alias py='cd /Volumes/media/programación/Python'
-alias ja='cd /Volumes/media/programación/Java'
+
+if [[ `uname` == "Darwin" ]]
+then
+    alias c='cd /Volumes/media/programación/C'
+    alias pr='cd /Volumes/media/programación'
+    alias py='cd /Volumes/media/programación/Python'
+    alias ja='cd /Volumes/media/programación/Java'
+fi
+
 alias ph='cd /var/www/PHP'
 alias sy='cd /var/www/Symfony'
 alias sassw='sass --watch scss:css --style compressed'
