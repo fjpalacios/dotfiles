@@ -23,7 +23,7 @@
     skipped = !git ls-files -v | grep --color "^S" | cut -c 3-
     ignore = !sh -c 'echo $1 >> .gitignore' -
     ignored = !cat .gitignore
-    lod = log --oneline --decorate --abbrev-commit --graph
+    lod = log --all --color --graph --pretty=format:'%Cred%h%Creset --%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date-order
     c = commit
     m = merge --no-ff
     co = checkout
@@ -34,10 +34,10 @@
     ui = always
 
 [filter "lfs"]
+	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
-	required = true
 
 [gpg]
     program = /usr/local/bin/gpg
