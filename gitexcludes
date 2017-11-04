@@ -276,7 +276,7 @@ ENV/
 !bin/symfony_requirements
 # Assets and user uploads
 /web/bundles/
-/web/uploads/
+/web/uploads/*
 # PHPUnit
 /app/phpunit.xml
 /phpunit.xml
