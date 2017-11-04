@@ -16,6 +16,8 @@ then
     alias pr='cd /Volumes/media/programación'
     alias py='cd /Volumes/media/programación/Python'
     alias ja='cd /Volumes/media/programación/Java'
+    alias dam='cd /Volumes/media/DAM'
+    alias vim='/usr/local/bin/vim'
 fi
 
 alias ph='cd /var/www/PHP'
