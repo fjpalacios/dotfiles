@@ -23,6 +23,7 @@ fi
 alias ph='cd /var/www/PHP'
 alias sy='cd /var/www/Symfony'
 alias sassw='sass --watch scss:css --style compressed'
+alias git='LANG=en_US git'
 
 # Launch a tmux session automatically
 if [[ -z "$TMUX" ]]
