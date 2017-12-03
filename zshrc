@@ -7,21 +7,21 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-alias python='python3.6'
-alias pip='python -m pip $1'
-
 if [[ `uname` == "Darwin" ]]
 then
-    alias c='cd /Volumes/media/programación/C'
-    alias pr='cd /Volumes/media/programación'
-    alias py='cd /Volumes/media/programación/Python'
-    alias ja='cd /Volumes/media/programación/Java'
-    alias dam='cd /Volumes/media/DAM'
     alias vim='/usr/local/bin/vim'
 fi
 
-alias ph='cd /var/www/PHP'
-alias sy='cd /var/www/Symfony'
+alias python='python3.6'
+alias pip='python -m pip $1'
+alias pr='cd ~/Proyectos'
+alias e='cd ~/Proyectos/Ejercicios'
+alias c='cd ~/Proyectos/Ejercicios/C'
+alias py='cd ~/Proyectos/Ejercicios/Python'
+alias ja='cd ~/Proyectos/Ejercicios/Java'
+alias dam='cd ~/Proyectos/DAM'
+alias sc='cd ~/Proyectos/SargantanaCode'
+alias scw='cd ~/Proyectos/SargantanaCode/web'
 alias sassw='sass --watch scss:css --style compressed'
 alias git='LANG=en_US git'
 
