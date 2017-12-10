@@ -14,6 +14,8 @@ set noswapfile
 syntax enable
 " Monokai colors
 let g:molokai_original = 1
+colorscheme molokai
+set t_Co=256
 " Show relative line numbers
 set number
 set relativenumber
@@ -77,7 +79,7 @@ Plugin  'ctrlpvim/ctrlp.vim'
 call vundle#end()
 filetype plugin indent on
 " Plugins end
-"
+
 let mapleader=","
 
 " Custom keyboard shortcuts
