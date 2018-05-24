@@ -25,14 +25,3 @@ alias scw='cd ~/Proyectos/SargantanaCode/web'
 alias sassw='sass --watch scss:css --style compressed'
 alias git='LANG=en_US git'
 
-# Launch a tmux session automatically
-if [[ -z "$TMUX" ]]
-then
-    ID="`tmux ls | grep -vm1 attached | cut -d: -f1`"
-    if [[ -z "$ID" ]]
-    then
-        tmux new-session
-    else
-        tmux attach-session -t "$ID"
-    fi
-fi
