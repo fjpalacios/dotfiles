@@ -16,6 +16,9 @@ syntax enable
 let g:molokai_original = 1
 colorscheme molokai
 set t_Co=256
+" Highlight current line and column
+set cursorline
+set cursorcolumn
 " Show relative line numbers
 set number
 set relativenumber
