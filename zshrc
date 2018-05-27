@@ -7,11 +7,6 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-if [[ `uname` == "Darwin" ]]
-then
-    alias vim='/usr/local/bin/vim'
-fi
-
 alias python='python3.6'
 alias pip='python -m pip $1'
 alias pr='cd ~/Proyectos'
@@ -24,4 +19,8 @@ alias sc='cd ~/Proyectos/SargantanaCode'
 alias scw='cd ~/Proyectos/SargantanaCode/web'
 alias sassw='sass --watch scss:css --style compressed'
 alias git='LANG=en_US git'
-
+alias tls='tmux list-sessions'
+alias ta='tmux attach -t'
+alias tm='tmux attach || tmux new -s main'
+alias tk='tmux kill-session -t'
+alias tn='tmux new -s'
