@@ -83,8 +83,6 @@ Plugin 'evidens/vim-twig'
 Plugin 'mattn/emmet-vim'
 " EditorConfig
 Plugin 'editorconfig/editorconfig-vim'
-" Buftabline
-Plugin 'ap/vim-buftabline'
 " Gitgutter
 Plugin 'airblade/vim-gitgutter'
 " CTRLP
@@ -96,6 +94,10 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-syntastic/syntastic'
 " YouCompleteMe
 Plugin 'Valloric/YouCompleteMe'
+" Code snipets
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'ervandew/supertab'
 call vundle#end()
 filetype plugin indent on
 " Plugins end
@@ -123,9 +125,11 @@ noremap <right> <C-w><right>
 set hidden
 " CTRLP
 let g:ctrlp_map = '<C-T>'
-let g:ctrlp_max_height=30
+let g:ctrlp_max_height=10
 " Powerline theme
 let g:airline_theme='dark'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 " Hidding current mode because we are using custom statusbar
 set noshowmode
 set ttimeoutlen=50
@@ -136,3 +140,10 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
+" Code snippets
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
