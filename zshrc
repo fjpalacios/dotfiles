@@ -24,3 +24,8 @@ alias ta='tmux attach -t'
 alias tm='tmux attach || tmux new -s main'
 alias tk='tmux kill-session -t'
 alias tn='tmux new -s'
+
+if [[ `uname` == "Darwin" ]]
+then
+    alias ctags="`brew --prefix`/bin/ctags"
+fi

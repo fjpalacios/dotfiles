@@ -98,6 +98,8 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'ervandew/supertab'
+" Tagbar for ctags
+Plugin 'majutsushi/tagbar'
 call vundle#end()
 filetype plugin indent on
 " Plugins end
@@ -147,3 +149,5 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+" Tagbar for ctags
+nmap <F8> :TagbarToggle<CR>
