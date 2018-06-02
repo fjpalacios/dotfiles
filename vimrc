@@ -1,5 +1,7 @@
 " Disable vi compatibility mode
 set nocompatible
+set path+=**
+set wildmenu
 " Increase history size
 set history=1000
 " Always use unicode
@@ -122,7 +124,7 @@ noremap <right> <C-w><right>
 
 " Plugin settings
 " NERDTree
-:let g:NERDTreeWinSize=20
+:let g:NERDTreeWinSize=40
 " Buftabline
 set hidden
 " CTRLP
@@ -151,3 +153,4 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " Tagbar for ctags
 nmap <F8> :TagbarToggle<CR>
+let g:tagbar_autofocus = 1
