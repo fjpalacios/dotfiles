@@ -25,6 +25,11 @@ alias tm='tmux attach || tmux new -s main'
 alias tk='tmux kill-session -t'
 alias tn='tmux new -s'
 
+if [[ `uname` == "Linux" ]]
+then
+    alias pach='sudo pacman -Rns $(pacman -Qtdq)'
+fi
+
 if [[ `uname` == "Darwin" ]]
 then
     alias ctags="`brew --prefix`/bin/ctags"
