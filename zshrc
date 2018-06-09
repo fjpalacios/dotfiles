@@ -6,6 +6,7 @@ HIST_STAMPS="dd/mm/yyyy"
 plugins=(git rails django osx)
 
 source $ZSH/oh-my-zsh.sh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 alias python='python3.6'
 alias pip='python -m pip $1'
