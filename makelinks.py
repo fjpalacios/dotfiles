@@ -4,8 +4,8 @@ from os import path
 
 DIRECTORY = ".dotfiles"
 OLD_DIRECTORY = ".dotfiles_old"
-FILES = ["bash_profile", "vimrc", "gitconfig", "gitexcludes", "pylintrc",
-         "zshrc", "tmux.conf", "imwheelrc"]
+FILES = ["vimrc", "gitconfig", "gitexcludes", "pylintrc", "zshrc", "tmux.conf",
+         "imwheelrc"]
 
 print("Creating ~/{} for backup of any existing dotfiles at home"
       .format(OLD_DIRECTORY))
