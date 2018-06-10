@@ -1,5 +1,6 @@
 from subprocess import call
 from os import path
+from pathlib import Path
 
 
 DIRECTORY = ".dotfiles"
@@ -9,14 +10,14 @@ FILES = ["vimrc", "gitconfig", "gitexcludes", "pylintrc", "zshrc", "tmux.conf",
 
 print("Creating ~/{} for backup of any existing dotfiles at home"
       .format(OLD_DIRECTORY))
-call(["mkdir", "-p", path.join(path.expanduser("~"), OLD_DIRECTORY)])
-call(["cd", path.join(path.expanduser("~"), DIRECTORY)])
+call(["mkdir", "-p", path.join(Path.home(), OLD_DIRECTORY)], shell=True)
+call(["cd", path.join(Path.home(), DIRECTORY)], shell=True)
 
 print("Moving any existing dotfiles from home to ~/{}".format(OLD_DIRECTORY))
 
 for file in FILES:
-    call(["mv", path.join(path.expanduser("~") + "/." + file),
-          path.join(path.expanduser("~"), OLD_DIRECTORY)])
+    call(["mv", path.join(Path.home() + "/." + file),
+          path.join(Path.home(), OLD_DIRECTORY)], shell=True)
     print("Creating a symlink to {} in home directory".format(file))
-    call(["ln", "-s", path.join(path.expanduser("~"), DIRECTORY, file),
-          path.join(path.expanduser("~"), "." + file)])
+    call(["ln", "-s", path.join(Path.home(), DIRECTORY, file),
+          path.join(Path.home(), "." + file)], shell=True)
