@@ -1,4 +1,5 @@
 export ZSH=~/.oh-my-zsh
+eval "$(rbenv init -)"
 
 ZSH_THEME="gitster"
 HIST_STAMPS="dd/mm/yyyy"
