@@ -17,10 +17,9 @@ syntax on
 let g:molokai_original = 1
 colorscheme molokai
 set t_Co=256
-" Toggle invisible characters
+" Toggle some invisible characters
 set list
-set listchars=tab:→\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
-set showbreak=↪
+set listchars=tab:→\ ,trail:⋅
 " Setting visual select-line background color in visual mode
 hi Visual cterm=bold ctermbg=Darkgrey
 " Highlight current line and column
@@ -75,33 +74,36 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " Let Vundle manage itself
 Plugin 'gmarik/Vundle.vim'
-" NERDTree view navigator
+
+" GUI
 Plugin 'scrooloose/nerdtree'
-" NERDTree with git highlight
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-" Twig syntax highlighting
-Plugin 'evidens/vim-twig'
-" Emmet
-Plugin 'mattn/emmet-vim'
-" EditorConfig
-Plugin 'editorconfig/editorconfig-vim'
-" Gitgutter
 Plugin 'airblade/vim-gitgutter'
-" CTRLP
-Plugin  'ctrlpvim/ctrlp.vim'
-" Powerline statusbar
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-" Syntastic
+
+" Syntax
 Plugin 'vim-syntastic/syntastic'
-" YouCompleteMe
 Plugin 'Valloric/YouCompleteMe'
-" Code snipets
+
+" Snipets
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'ervandew/supertab'
-" Tagbar for ctags
+
+" Languages
+Plugin 'mattn/emmet-vim'
+Plugin 'evidens/vim-twig'
+Plugin 'tpope/vim-rails'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-endwise'
+
+" Tools
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-surround'
+
 call vundle#end()
 filetype plugin indent on
 " Plugins end
@@ -124,7 +126,7 @@ noremap <right> <C-w><right>
 
 " Plugin settings
 " NERDTree
-:let g:NERDTreeWinSize=40
+let g:NERDTreeWinSize=40
 " Buftabline
 set hidden
 " CTRLP
