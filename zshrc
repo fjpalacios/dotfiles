@@ -30,11 +30,12 @@ alias tn='tmux new -s'
 if [[ `uname` == "Linux" ]]
 then
     alias pach='sudo pacman -Rns $(pacman -Qtdq)'
-    export PATH="/home/javi/.gem/ruby/2.5.0/bin:$PATH"
+    export PATH="$HOME/.rbenv/bin:$PATH"
 fi
 
 if [[ `uname` == "Darwin" ]]
 then
     alias ctags="`brew --prefix`/bin/ctags"
-    eval "$(rbenv init -)"
 fi
+
+eval "$(rbenv init -)"
