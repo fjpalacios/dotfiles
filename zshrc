@@ -8,7 +8,7 @@ plugins=(git rails django osx)
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-alias python='python3.6'
+alias python='python3'
 alias pip='python -m pip $1'
 alias pr='cd ~/Proyectos'
 alias e='cd ~/Proyectos/Ejercicios'
@@ -18,6 +18,7 @@ alias ja='cd ~/Proyectos/Ejercicios/Java'
 alias dam='cd ~/Proyectos/DAM'
 alias sc='cd ~/Proyectos/SargantanaCode'
 alias scw='cd ~/Proyectos/SargantanaCode/web'
+alias scv='source ~/Proyectos/VirtualEnvironments/SargantanaCode/bin/activate'
 alias sassw='sass --watch scss:css --style compressed'
 alias git='LANG=en_US git'
 alias tls='tmux list-sessions'
