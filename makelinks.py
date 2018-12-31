@@ -3,21 +3,21 @@ from os import path
 from pathlib import Path
 
 
-DIRECTORY = ".dotfiles"
-OLD_DIRECTORY = ".dotfiles_old"
-FILES = ["vimrc", "gitconfig", "gitexcludes", "pylintrc", "zshrc", "tmux.conf",
-         "imwheelrc"]
+DIRECTORY = '.dotfiles'
+OLD_DIRECTORY = '.dotfiles_old'
+FILES = ['vimrc', 'gitconfig', 'gitexcludes', 'pylintrc', 'zshrc', 'tmux.conf',
+         'imwheelrc', 'chunkwmrc', 'skhdrc']
 
-print("Creating ~/{} for backup of any existing dotfiles at home"
-      .format(OLD_DIRECTORY))
-call(["mkdir", "-p", path.join(Path.home(), OLD_DIRECTORY)])
-call(["cd", path.join(Path.home(), DIRECTORY)], shell=True)
+print(f'Creating ~/{OLD_DIRECTORY} to backup any existing dotfiles at home')
 
-print("Moving any existing dotfiles from home to ~/{}".format(OLD_DIRECTORY))
+call(['mkdir', '-p', path.join(Path.home(), OLD_DIRECTORY)])
+call(['cd', path.join(Path.home(), DIRECTORY)], shell=True)
+
+print('Moving any existing dotfiles from home to ~/{}'.format(OLD_DIRECTORY))
 
 for file in FILES:
-    call(["mv", path.join(str(Path.home()) + "/." + file),
+    call(['mv', path.join(str(Path.home()), '.' + file),
           path.join(Path.home(), OLD_DIRECTORY)])
-    print("Creating a symlink to {} in home directory".format(file))
-    call(["ln", "-s", path.join(Path.home(), DIRECTORY, file),
-          path.join(Path.home(), "." + file)])
+    print(f'Creating a symlink to .{file} in home directory')
+    call(['ln', '-s', path.join(Path.home(), DIRECTORY, file),
+          path.join(Path.home(), '.' + file)])
