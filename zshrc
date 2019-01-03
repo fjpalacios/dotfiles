@@ -18,7 +18,8 @@ alias dam='cd ~/Proyectos/DAM'
 alias sc='cd ~/Proyectos/SargantanaCode'
 alias scw='cd ~/Proyectos/SargantanaCode/web'
 alias scwd='cd ~/Proyectos/SargantanaCode/web-ror'
-alias ve='venv() { source ~/Proyectos/VirtualEnvironments/"$1"/bin/activate }; venv'
+alias ve='venv() { source env/bin/activate }; venv'
+alias pyu='pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U'
 alias sassw='sass --watch scss:css --style compressed'
 alias git='LANG=en_US git'
 alias tls='tmux list-sessions'
@@ -39,3 +40,7 @@ then
 fi
 
 eval "$(rbenv init -)"
+
+chpwd() {
+  ls
+}
