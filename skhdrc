@@ -21,8 +21,8 @@ shift + alt - left : chunkc tiling::window --grid-layout 1:2:0:0:1:1
 shift + alt - right : chunkc tiling::window --grid-layout 1:2:1:0:1:1
 
 # change layout of desktop
-alt - e : chunkc tiling::desktop --layout bsp
-alt - s : chunkc tiling::desktop --layout monocle
+shift + alt - e : chunkc tiling::desktop --layout bsp
+shift + alt - s : chunkc tiling::desktop --layout monocle
 
 # close focused window
 shift + alt - q : chunkc tiling::window --close
@@ -118,3 +118,6 @@ shift + alt - t : chunkc set window_float_next 1
 
 # remove focused window border from screenshots
 cmd + shift - 4 -> : chunkc border::clear
+
+# remove focused window border
+alt - b : chunkc border::clear
