@@ -8,6 +8,7 @@ plugins=(git rails django osx)
 source $ZSH/oh-my-zsh.sh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+alias vim='nvim'
 alias pr='cd ~/Proyectos'
 alias e='cd ~/Proyectos/Ejercicios'
 alias c='cd ~/Proyectos/Ejercicios/C'
