@@ -163,6 +163,21 @@ augroup deopleteCompleteDoneAu
   autocmd!
   autocmd CompleteDone * silent! pclose!
 augroup END
+if has('macunix')
+    let g:python_host_prog = '/Users/javi/neovim-env/bin/python'
+    let g:python3_host_prog = '/Users/javi/neovim-env/bin/python3'
+    let g:ale_python_pycodestyle_executable = '/Users/javi/neovim-env/bin/pycodestyle'
+    let g:ale_python_flake8_executable = '/Users/javi/neovim-env/bin/flake8'
+    let g:ale_python_pylint_executable = '/Users/javi/neovim-env/bin/pylint'
+    let g:ale_python_autopep8_executable = '/Users/javi/neovim-env/bin/autopep8'
+else
+    let g:python_host_prog = '/home/javi/neovim-env/bin/python'
+    let g:python3_host_prog = '/home/javi/neovim-env/bin/python3'
+    let g:ale_python_pycodestyle_executable = '/home/javi/neovim-env/bin/pycodestyle'
+    let g:ale_python_flake8_executable = '/home/javi/neovim-env/bin/flake8'
+    let g:ale_python_pylint_executable = '/home/javi/neovim-env/bin/pylint'
+    let g:ale_python_autopep8_executable = '/home/javi/neovim-env/bin/autopep8'
+endif
 " Echodoc
 let g:echodoc_enable_at_startup = 1
 " Supertab
@@ -172,6 +187,7 @@ let g:UltiSnipsExpandTrigger = '<c-s>'
 let g:UltiSnipsJumpForwardTrigger = '<c-s>'
 " Ale
 let g:ale_linters = {
+  \ 'python': ['pycodestyle', 'flake8', 'pylint'] ,
   \ 'typescript': ['tsserver'] ,
   \ }
 let g:ale_fixers = {
