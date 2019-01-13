@@ -4,7 +4,7 @@
     signingkey = 65A58C24
 
 [core]
-    editor = vim
+    editor = nvim
     excludesfile = ~/.gitexcludes
 
 [diff]
