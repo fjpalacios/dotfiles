@@ -200,6 +200,8 @@ let g:ale_fixers = {
   \}
 " Javascript
 let g:javascript_plugin_jsdoc = 1
+" Quit Neovim when no buffers left
+autocmd BufDelete * if len(filter(range(1, bufnr('$')), '! empty(bufname(v:val)) && buflisted(v:val)')) == 1 | quit | endif
 
 " Make reserved keywords and comments italic
 highlight htmlArg cterm=italic term=italic gui=italic
