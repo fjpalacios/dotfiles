@@ -155,8 +155,10 @@ let g:indentLine_fileTypeExclude = ['text', 'sh', 'help', 'terminal']
 let g:indentLine_bufNameExclude = ['NERD_tree.*', 'term:.*']
 " CtrlP
 let g:ctrlp_map = '<c-t>'
+let g:ctrlp_show_hidden = 1
 " NERDTree
 map <Leader>, :NERDTreeToggle<cr>
+let NERDTreeShowHidden = 1
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 augroup deopleteCompleteDoneAu
