@@ -3,10 +3,9 @@ export ZSH=~/.oh-my-zsh
 ZSH_THEME="gitster"
 HIST_STAMPS="dd/mm/yyyy"
 
-plugins=(git rails django osx docker zsh-syntax-highlighting)
+plugins=(git rails django osx docker zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 alias vim='nvim'
 alias cat='bat'
