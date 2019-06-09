@@ -3,7 +3,10 @@ export ZSH=~/.oh-my-zsh
 ZSH_THEME="elessar"
 HIST_STAMPS="dd/mm/yyyy"
 
-plugins=(git rails django osx docker zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(
+    git rails django osx docker docker-compose zsh-autosuggestions
+    zsh-syntax-highlighting git-flow-completion
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -11,14 +14,16 @@ alias vim='nvim'
 alias cat='bat'
 alias mkd='mkd() { mkdir "$1" && cd "$1" }; mkd'
 alias weather='wthr() { curl -H "Accept-Language: es" http://wttr.in/"$1" }; wthr'
-alias pr='cd ~/Proyectos'
-alias e='cd ~/Proyectos/Ejercicios'
-alias c='cd ~/Proyectos/Ejercicios/C'
-alias py='cd ~/Proyectos/Ejercicios/Python'
-alias ja='cd ~/Proyectos/Ejercicios/Java'
-alias sc='cd ~/Proyectos/SargantanaCode'
-alias scw='cd ~/Proyectos/SargantanaCode/web-ror'
+alias co='cd ~/Code'
+alias e='cd ~/Code/Ejercicios'
+alias c='cd ~/Code/Ejercicios/C'
+alias py='cd ~/Code/Ejercicios/Python'
+alias ja='cd ~/Code/Ejercicios/Java'
+alias sc='cd ~/Code/SargantanaCode'
+alias scw='cd ~/Code/SargantanaCode/web-ror'
+alias scwd='cd ~/Code/SargantanaCode/sargantanacode'
 alias pyu='pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U'
+alias pyd='pip freeze | xargs pip uninstall -y'
 alias init='init() { npx license "$1" > LICENSE && npx gitignore "$2" && npx covgen "$3" }; init'
 alias sassw='sass --watch scss:css --style compressed'
 alias git='LANG=en_US git'
@@ -40,7 +45,11 @@ then
 fi
 
 eval "$(rbenv init -)"
+eval "$(pyenv init -)"
 
 chpwd() {
   ls
 }
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
