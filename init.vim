@@ -38,6 +38,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': ['javascript'] }
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', { 'do': './install.sh', 'for': ['typescript'] }
+Plug 'posva/vim-vue'
 
 " Tools
 Plug 'tpope/vim-fugitive'
@@ -51,6 +52,7 @@ Plug 'tpope/vim-endwise'
 Plug 'jiangmiao/auto-pairs'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 Plug 'ap/vim-css-color'
+Plug 'mileszs/ack.vim'
 
 call plug#end()
 
@@ -156,6 +158,15 @@ let g:indentLine_bufNameExclude = ['NERD_tree.*', 'term:.*']
 " CtrlP
 let g:ctrlp_map = '<c-t>'
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|node_modules\|.env\|log\|tmp$',
+  \ 'file': '\.so$\|\.dat$|\.DS_Store$'
+  \ }
+" Ack
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+ca Ack Ack!
 " NERDTree
 map <Leader>, :NERDTreeToggle<cr>
 let NERDTreeShowHidden = 1
@@ -165,21 +176,12 @@ augroup deopleteCompleteDoneAu
   autocmd!
   autocmd CompleteDone * silent! pclose!
 augroup END
-if has('macunix')
-    let g:python_host_prog = '/Users/javi/neovim-env/bin/python'
-    let g:python3_host_prog = '/Users/javi/neovim-env/bin/python3'
-    let g:ale_python_pycodestyle_executable = '/Users/javi/neovim-env/bin/pycodestyle'
-    let g:ale_python_flake8_executable = '/Users/javi/neovim-env/bin/flake8'
-    let g:ale_python_pylint_executable = '/Users/javi/neovim-env/bin/pylint'
-    let g:ale_python_autopep8_executable = '/Users/javi/neovim-env/bin/autopep8'
-else
-    let g:python_host_prog = '/home/javi/neovim-env/bin/python'
-    let g:python3_host_prog = '/home/javi/neovim-env/bin/python3'
-    let g:ale_python_pycodestyle_executable = '/home/javi/neovim-env/bin/pycodestyle'
-    let g:ale_python_flake8_executable = '/home/javi/neovim-env/bin/flake8'
-    let g:ale_python_pylint_executable = '/home/javi/neovim-env/bin/pylint'
-    let g:ale_python_autopep8_executable = '/home/javi/neovim-env/bin/autopep8'
-endif
+let g:python_host_prog = expand('~/neovim-env/bin/python')
+let g:python3_host_prog = expand('~/neovim-env/bin/python3')
+let g:ale_python_pycodestyle_executable = expand('~/neovim-env/bin/pycodestyle')
+let g:ale_python_flake8_executable = expand('~/neovim-env/bin/flake8')
+let g:ale_python_pylint_executable = expand('~/neovim-env/bin/pylint')
+let g:ale_python_autopep8_executable = expand('~/neovim-env/bin/autopep8')
 " Echodoc
 let g:echodoc_enable_at_startup = 1
 " Supertab
@@ -191,7 +193,9 @@ let g:UltiSnipsJumpForwardTrigger = '<c-s>'
 let g:ale_linters = {
   \ 'python': ['pycodestyle', 'flake8', 'pylint'] ,
   \ 'typescript': ['tsserver'] ,
+  \ 'javascript': ['prettier', 'eslint'],
   \ }
+let g:ale_python_pylint_options = '--load-plugins pylint_django'
 let g:ale_fixers = {
   \  'python': ['yapf', 'autopep8'],
   \  'ruby': ['rubocop'],
