@@ -1,60 +1,48 @@
-" Automatically install vim-plug if it's not yet installed
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-plug autoinstaller
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
-    silent !curl -fLso ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall
+  silent !curl -fLso ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
 end
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
-call plug#begin('~/.config/nvim/plugged/')
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+call plug#begin('~/.config/nvim/plugged/')
 " GUI
+Plug 'airblade/vim-gitgutter'
 Plug 'mhartington/oceanic-next'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'vim-airline/vim-airline'
-Plug 'airblade/vim-gitgutter'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Yggdroot/indentLine'
-
 " Syntax
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/neoinclude.vim'
-Plug 'Shougo/context_filetype.vim'
-Plug 'Shougo/neco-syntax'
-Plug 'Shougo/echodoc.vim'
-Plug 'ervandew/supertab'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'sheerun/vim-polyglot'
 Plug 'w0rp/ale'
-
-" Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-
-" Languages
-Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for': ['python'] }
-Plug 'zchee/deoplete-jedi', { 'for': ['python'] }
-Plug 'Vimjas/vim-python-pep8-indent', { 'for': ['python'] }
-Plug 'fishbullet/deoplete-ruby', { 'for': ['ruby'] }
-Plug 'pangloss/vim-javascript'
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': ['javascript'] }
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'mhartington/nvim-typescript', { 'do': './install.sh', 'for': ['typescript'] }
-Plug 'posva/vim-vue'
-
 " Tools
-Plug 'tpope/vim-fugitive'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'janko-m/vim-test'
-Plug 'tpope/vim-surround'
-Plug 'mattn/emmet-vim'
 Plug 'alvan/vim-closetag'
-Plug 'tpope/vim-endwise'
-Plug 'jiangmiao/auto-pairs'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
-Plug 'ap/vim-css-color'
-Plug 'mileszs/ack.vim'
-
+Plug 'janko-m/vim-test'
+Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf.vim'
+Plug 'KabbAmine/vCoolor.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tmhedberg/SimpylFold'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
 call plug#end()
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" VIM config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Increase history size
 set history=1000
@@ -64,6 +52,9 @@ set encoding=utf-8
 set nobackup
 set nowritebackup
 set noswapfile
+" Persist undo history between file editing sessions.
+set undofile
+set undodir=~/.config/nvim/undodir
 " Show relative line numbers
 set number
 set relativenumber
@@ -103,30 +94,6 @@ endif
 " More natural split opening
 set splitbelow
 set splitright
-" Set a map leader for more key combos
-let mapleader=','
-" Quickly open/reload vim
-nnoremap <leader>ev :vsplit $MYVIMRC<CR>
-nnoremap <leader>sv :source $MYVIMRC<CR>
-" Switch between split windows
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-" Switch between buffers
-map <C-N> :bnext<CR>
-map <C-P> :bprev<CR>
-map <C-C> :bdelete!<CR>
-" Clear highlighted search
-noremap <space> :noh<CR>
-" Remove extra whitespace
-nmap <leader><space> :%s/\s\+$<cr>
-" Run tests
-nmap <silent> t<C-n> :TestNearest<CR>
-nmap <silent> t<C-f> :TestFile<CR>
-nmap <silent> t<C-s> :TestSuite<CR>
-nmap <silent> t<C-l> :TestLast<CR>
-nmap <silent> t<C-g> :TestVisit<CR>
 " Turn on syntax colors
 syntax on
 filetype plugin indent on
@@ -142,69 +109,20 @@ set cursorcolumn
 set hidden
 set noshowmode
 set ttimeoutlen=50
+" Folding with ease
+set foldmethod=indent
+set foldlevel=1
+set nofoldenable
+" Persist folding between sessions
+au BufWinLeave *.* mkview
+au BufWinEnter *.* silent loadview
 " Show extra whitespaces
 highlight Trail ctermbg=red guibg=red
 call matchadd('Trail', '\s\+$', 100)
 " Set visual select-line background color in visual mode
-hi Visual cterm=bold ctermbg=Darkgrey
+highlight Visual cterm=bold ctermbg=Darkgrey
 " Highlight conflicts
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-" Airline plugin
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-" IndentLine plugin
-let g:indentLine_fileTypeExclude = ['text', 'sh', 'help', 'terminal']
-let g:indentLine_bufNameExclude = ['NERD_tree.*', 'term:.*']
-" CtrlP
-let g:ctrlp_map = '<c-t>'
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|node_modules\|.env\|log\|tmp$',
-  \ 'file': '\.so$\|\.dat$|\.DS_Store$'
-  \ }
-" Ack
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-ca Ack Ack!
-" NERDTree
-map <Leader>, :NERDTreeToggle<cr>
-let NERDTreeShowHidden = 1
-" Deoplete
-let g:deoplete#enable_at_startup = 1
-augroup deopleteCompleteDoneAu
-  autocmd!
-  autocmd CompleteDone * silent! pclose!
-augroup END
-let g:python_host_prog = expand('~/neovim-env/bin/python')
-let g:python3_host_prog = expand('~/neovim-env/bin/python3')
-let g:ale_python_pycodestyle_executable = expand('~/neovim-env/bin/pycodestyle')
-let g:ale_python_flake8_executable = expand('~/neovim-env/bin/flake8')
-let g:ale_python_pylint_executable = expand('~/neovim-env/bin/pylint')
-let g:ale_python_autopep8_executable = expand('~/neovim-env/bin/autopep8')
-" Echodoc
-let g:echodoc_enable_at_startup = 1
-" Supertab
-let g:SuperTabDefaultCompletionType = '<c-n>'
-" Ultisnips
-let g:UltiSnipsExpandTrigger = '<c-s>'
-let g:UltiSnipsJumpForwardTrigger = '<c-s>'
-" Ale
-let g:ale_linters = {
-  \ 'python': ['pycodestyle', 'flake8', 'pylint'] ,
-  \ 'typescript': ['tsserver'] ,
-  \ 'javascript': ['prettier', 'eslint'],
-  \ }
-let g:ale_python_pylint_options = '--load-plugins pylint_django'
-let g:ale_fixers = {
-  \  'python': ['yapf', 'autopep8'],
-  \  'ruby': ['rubocop'],
-  \  'javascript': ['prettier', 'eslint'],
-  \  'typescript': ['prettier', 'tsserver'],
-  \}
-" Javascript
-let g:javascript_plugin_jsdoc = 1
-
 " Make reserved keywords and comments italic
 highlight htmlArg cterm=italic term=italic gui=italic
 highlight xmlAttrib cterm=italic term=italic gui=italic
@@ -232,3 +150,133 @@ highlight Delimiter cterm=italic term=italic gui=italic
 highlight SpecialComment cterm=italic term=italic gui=italic
 highlight Debug cterm=italic term=italic gui=italic
 highlight Todo cterm=italic term=italic gui=italic
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Custom shortcuts
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Set a map leader for more key combos
+let mapleader=','
+" Quickly open/reload vim config
+nmap <Leader>ev :vsplit $MYVIMRC<CR>
+nmap <Leader>sv :source $MYVIMRC<CR>
+" Switch between split windows
+nmap <C-j> <C-w><C-j>
+nmap <C-k> <C-w><C-k>
+nmap <C-l> <C-w><C-l>
+nmap <C-h> <C-w><C-h>
+" Switch between buffers
+nmap <C-n> :bnext<CR>
+nmap <C-p> :bprev<CR>
+nmap <C-c> :bdelete!<CR>
+" Clear highlighted search
+nmap <Space> :noh<CR>
+" Remove extra whitespace
+nmap <Leader><Space> :%s/\s\+$<CR>
+" Run tests
+nmap <Silent> t<C-n> :TestNearest<CR>
+nmap <Silent> t<C-f> :TestFile<CR>
+nmap <Silent> t<C-s> :TestSuite<CR>
+nmap <Silent> t<C-l> :TestLast<CR>
+nmap <Silent> t<C-g> :TestVisit<CR>
+" Format selected region
+vmap <Leader>fs <Plug>(coc-format-selected)
+nmap <Leader>fs <Plug>(coc-format-selected)
+" Format file
+nmap <Leader>ff :Format<CR>
+" Do codeAction of current line
+nmap <Leader>ac <Plug>(coc-codeaction)
+" Do codeAction of selected region
+xmap <Leader>a <Plug>(coc-codeaction-selected)
+nmap <Leader>a <Plug>(coc-codeaction-selected)
+" Select selections ranges
+nmap <Silent> <C-d> <Plug>(coc-range-select)
+xmap <Silent> <C-d> <Plug>(coc-range-select)
+" Fix problem of current line
+nmap <Leader>qf <Plug>(coc-fix-current)
+" Use `[g` and `]g` to navigate diagnostics
+nmap <Silent> [g <Plug>(coc-diagnostic-prev)
+nmap <Silent> ]g <Plug>(coc-diagnostic-next)
+" Keys for gotos
+nmap <Silent> gd <Plug>(coc-definition)
+nmap <Silent> gy <Plug>(coc-type-definition)
+nmap <Silent> gi <Plug>(coc-implementation)
+nmap <Silent> gr <Plug>(coc-references)
+" Rename current word
+nmap <F2> <Plug>(coc-rename)
+" NERDTree
+nmap <Leader>nn :NERDTreeToggle<CR>
+nmap <Leader>nb :NERDTreeFromBookmark
+nmap <Leader>nf :NERDTreeFind<CR>
+" Switch relative numbers
+nmap <Leader>rn :set invrelativenumber<CR>
+" Easy save
+nmap <Leader>w :update<CR>
+" Markdown preview
+nmap <Leader>mp <Plug>MarkdownPreviewToggle
+" fzf
+nmap <Leader>f :Files<CR>
+nmap <Leader>t :Rg<Space>
+nmap <Leader>h :History<CR>
+nmap <Leader>b :Buffers<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugins' config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Airline plugin
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let airline#extensions#ale#error_symbol = '✘ '
+let airline#extensions#ale#warning_symbol = '⚠ '
+" IndentLine plugin
+let g:indentLine_fileTypeExclude = ['text', 'sh', 'help', 'terminal']
+let g:indentLine_bufNameExclude = ['NERD_tree.*', 'term:.*']
+" NERDTree
+let NERDTreeShowHidden = 1
+let g:NERDTreeIgnore = ['^node_modules$', '.git']
+" NERDCommenter
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+" VCoolor
+let g:vcoolor_lowercase = 1
+let g:vcoolor_map = '<C-g>'
+" Coc
+let g:coc_global_extensions = [
+  \ 'coc-html', 'coc-css', 'coc-json', 'coc-prettier', 'coc-emmet', 'coc-snippets',
+  \ 'coc-angular', 'coc-highlight', 'coc-python', 'coc-solargraph', 'coc-vetur',
+  \ 'coc-phpls'
+  \ ]
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+command! -nargs=0 Format :call CocAction('format')
+" Ale
+let g:ale_linters = {
+  \ 'python': ['pycodestyle', 'flake8', 'pylint'] ,
+  \ 'typescript': ['tsserver'] ,
+  \ 'javascript': ['prettier', 'eslint', 'xo'],
+  \ }
+let g:ale_fixers = {
+  \  'python': ['yapf', 'autopep8'],
+  \  'ruby': ['rubocop'],
+  \  'javascript': ['prettier', 'eslint'],
+  \  'typescript': ['prettier', 'tsserver'],
+  \}
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+let g:python_host_prog = expand('~/.pyenv/versions/neovim-python2/bin/python')
+let g:python3_host_prog = expand('~/.pyenv/versions/neovim-python3/bin/python3')
+let g:ale_python_pycodestyle_executable = expand('~/.pyenv/versions/neovim-python3/bin/pycodestyle')
+let g:ale_python_flake8_executable = expand('~/.pyenv/versions/neovim-python3/bin/flake8')
+let g:ale_python_pylint_executable = expand('~/.pyenv/versions/neovim-python3/bin/pylint')
+let g:ale_python_autopep8_executable = expand('~/.pyenv/versions/neovim-python3/bin/autopep8')
+" fzf
+set rtp+=/usr/local/opt/fzf
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
