@@ -22,8 +22,8 @@ alias ja='cd ~/Code/Ejercicios/Java'
 alias sc='cd ~/Code/SargantanaCode'
 alias scw='cd ~/Code/SargantanaCode/web-ror'
 alias scwd='cd ~/Code/SargantanaCode/sargantanacode'
-alias pyu='pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U'
-alias pyd='pip freeze | xargs pip uninstall -y'
+alias pyu='pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U'
+alias pyd='pip3 freeze | xargs pip3 uninstall -y'
 alias init='init() { npx license "$1" > LICENSE && npx gitignore "$2" && npx covgen "$3" }; init'
 alias sassw='sass --watch scss:css --style compressed'
 alias git='LANG=en_US git'
@@ -46,6 +46,7 @@ fi
 
 eval "$(rbenv init -)"
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 chpwd() {
   ls
@@ -53,3 +54,7 @@ chpwd() {
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+if type ag &> /dev/null; then
+    export FZF_DEFAULT_COMMAND='ag -g ""'
+fi
