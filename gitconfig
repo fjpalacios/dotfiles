@@ -7,11 +7,20 @@
     editor = nvim
     excludesfile = ~/.gitexcludes
 
+[mergetool "nvim"]
+    cmd = nvim -f -c \"Gdiff\" \"$MERGED\"
+
 [diff]
-    tool = vimdiff
+    tool = nvim
 
 [merge]
-    tool = vimmerge
+    tool = nvim
+
+[difftool]
+    prompt = false
+
+[mergetool]
+    prompt = true
 
 [alias]
     this = !git init && git add . && git commit -m \"Initial commit\"
