@@ -15,7 +15,8 @@ FILES = {
     '.imwheelrc': '~/',
     '.chunkwmrc': '~/',
     '.skhdrc': '~/',
-    'init.vim': '~/.config/nvim/'
+    'init.vim': '~/.config/nvim/',
+    '.agignore': '~/'
 }
 
 print(f'Creating {OLD_DIRECTORY} to backup any existing dotfiles at home')
