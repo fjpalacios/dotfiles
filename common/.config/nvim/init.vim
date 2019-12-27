@@ -113,9 +113,6 @@ set ttimeoutlen=50
 set foldmethod=indent
 set foldlevel=1
 set nofoldenable
-" Persist folding between sessions
-au BufWinLeave *.* mkview
-au BufWinEnter *.* silent loadview
 " Show extra whitespaces
 highlight Trail ctermbg=red guibg=red
 call matchadd('Trail', '\s\+$', 100)

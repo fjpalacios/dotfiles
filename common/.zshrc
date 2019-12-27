@@ -4,8 +4,8 @@ ZSH_THEME="elessar"
 HIST_STAMPS="dd/mm/yyyy"
 
 plugins=(
-    git rails django osx docker docker-compose zsh-autosuggestions
-    zsh-syntax-highlighting git-flow-completion
+    git django osx docker docker-compose zsh-autosuggestions
+    zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -27,8 +27,8 @@ alias pyd='pip3 freeze | xargs pip3 uninstall -y'
 alias init='init() { npx license "$1" > LICENSE && npx gitignore "$2" && npx covgen "$3" }; init'
 alias sassw='sass --watch scss:css --style compressed'
 alias git='LANG=en_US git'
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en0"
+# alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+# alias localip="ipconfig getifaddr en0"
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup'
 alias tls='tmux list-sessions'
 alias ta='tmux attach -t'
