@@ -1,0 +1,12 @@
+[Added Associations]
+application/pdf=org.pwmt.zathura.desktop;org.gnome.Evince.desktop;
+image/vnd.adobe.photoshop=gimp.desktop;
+image/png=gpicview.desktop;
+image/jpeg=gpicview.desktop;
+
+[Default Applications]
+text/html=firefox.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/about=firefox.desktop
+x-scheme-handler/unknown=firefox.desktop

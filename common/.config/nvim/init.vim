@@ -120,33 +120,6 @@ call matchadd('Trail', '\s\+$', 100)
 highlight Visual cterm=bold ctermbg=Darkgrey
 " Highlight conflicts
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-" Make reserved keywords and comments italic
-highlight htmlArg cterm=italic term=italic gui=italic
-highlight xmlAttrib cterm=italic term=italic gui=italic
-highlight Comment cterm=italic term=italic gui=italic
-highlight Statement cterm=italic term=italic gui=italic
-highlight Conditional cterm=italic term=italic gui=italic
-highlight Repeat cterm=italic term=italic gui=italic
-highlight Label cterm=italic term=italic gui=italic
-highlight Operator cterm=italic term=italic gui=italic
-highlight Keyword cterm=italic term=italic gui=italic
-highlight Exception cterm=italic term=italic gui=italic
-highlight PreProc cterm=italic term=italic gui=italic
-highlight Include cterm=italic term=italic gui=italic
-highlight Define cterm=italic term=italic gui=italic
-highlight Macro cterm=italic term=italic gui=italic
-highlight PreCondit cterm=italic term=italic gui=italic
-highlight Type cterm=italic term=italic gui=italic
-highlight StorageClass cterm=italic term=italic gui=italic
-highlight Structure cterm=italic term=italic gui=italic
-highlight Typedef cterm=italic term=italic gui=italic
-highlight Special cterm=italic term=italic gui=italic
-highlight SpecialChar cterm=italic term=italic gui=italic
-highlight Tag cterm=italic term=italic gui=italic
-highlight Delimiter cterm=italic term=italic gui=italic
-highlight SpecialComment cterm=italic term=italic gui=italic
-highlight Debug cterm=italic term=italic gui=italic
-highlight Todo cterm=italic term=italic gui=italic
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom shortcuts

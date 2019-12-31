@@ -1,0 +1,50 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+# Change $SCRIPT_DIR to the location of your scripts!
+command=$SCRIPT_DIR/$BLOCK_NAME/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+# Blocks
+[volume]
+label= 
+instance=Master
+interval=1
+signal=10
+separator=false
+
+[memory]
+label= 
+interval=30
+separator=false
+
+[load_average]
+label= 
+interval=10
+separator=false
+
+[mediaplayer]
+label= 
+instance=spotify
+interval=5
+signal=10
+separator=false
+
+[weather]
+label= 
+command=curl -Ss 'https://wttr.in?format=1' | cut -c 7- | xargs echo
+interval=3600
+separator=false
+
+[time]
+label= 
+command=date '+%d-%m-%Y | %H:%M:%S'; [[ -z "${BLOCK_BUTTON}" ]] || LANG=en_GB.UTF-8 gsimplecal &
+interval=1
+separator=false

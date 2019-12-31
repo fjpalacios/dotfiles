@@ -1,0 +1,6 @@
+set adjust-open "width"
+set zoom-min 10
+set selection-clipboard clipboard
+set window-title-home-tilde true
+set default-bg "#2f343f"
+set statusbar-bg "#2f343f"

@@ -1,4 +1,5 @@
 export ZSH=~/.oh-my-zsh
+export EDITOR=nvim
 
 ZSH_THEME="elessar"
 HIST_STAMPS="dd/mm/yyyy"
@@ -27,9 +28,8 @@ alias pyd='pip3 freeze | xargs pip3 uninstall -y'
 alias init='init() { npx license "$1" > LICENSE && npx gitignore "$2" && npx covgen "$3" }; init'
 alias sassw='sass --watch scss:css --style compressed'
 alias git='LANG=en_US git'
-# alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-# alias localip="ipconfig getifaddr en0"
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup'
+alias externalip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip='ip route get 1 | sed -n "s/^.*src \([0-9.]*\) .*$/\1/p"'
 alias tls='tmux list-sessions'
 alias ta='tmux attach -t'
 alias tm='tmux attach || tmux new -s main'
@@ -39,12 +39,16 @@ alias tn='tmux new -s'
 if [[ `uname` == "Linux" ]]
 then
     alias pach='sudo pacman -Rns $(pacman -Qtdq)'
+    alias update='sudo pacman -Syyu; yay -Syyu; orph; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup; pyu'
+    alias pbcopy="xclip -selection c"
+    alias pbpaste="xclip -selection c -o"
     export PATH="$HOME/.rbenv/bin:$PATH"
 fi
 
 if [[ `uname` == "Darwin" ]]
 then
     alias ctags="`brew --prefix`/bin/ctags"
+    alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup; pyu'
 fi
 
 eval "$(rbenv init -)"
