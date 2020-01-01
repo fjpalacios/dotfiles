@@ -39,7 +39,7 @@ alias tn='tmux new -s'
 if [[ `uname` == "Linux" ]]
 then
     alias pach='sudo pacman -Rns $(pacman -Qtdq)'
-    alias update='sudo pacman -Syyu; yay -Syyu; orph; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup; pyu'
+    alias update='sudo pacman -Syyu; yay -Syyu; pach; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup; pyu'
     alias pbcopy="xclip -selection c"
     alias pbpaste="xclip -selection c -o"
     export PATH="$HOME/.rbenv/bin:$PATH"
