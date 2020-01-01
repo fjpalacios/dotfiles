@@ -189,6 +189,10 @@ nmap <Leader>f :Files<CR>
 nmap <Leader>t :Rg<Space>
 nmap <Leader>h :History<CR>
 nmap <Leader>b :Buffers<CR>
+" Fugitive
+nmap <Leader>gd :Gvdiff<CR>
+nmap gdh :diffget //2<CR>
+nmap gdl :diffget //3<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins' config
