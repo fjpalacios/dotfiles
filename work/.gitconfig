@@ -1,0 +1,23 @@
+[user]
+    name = Javi Palacios
+    email = fpalacios@avantio.com
+
+[alias]
+    this = !git init && git add . && git commit -m \"Initial commit\"
+    hide = update-index --assume-unchanged
+    unhide = update-index --no-assume-unchanged
+    hidden = !git ls-files -v | grep --color "^h" | cut -c 3-
+    skip = update-index --skip-worktree
+    noskip = update-index --no-skip-worktree
+    skipped = !git ls-files -v | grep --color "^S" | cut -c 3-
+    ignore = !sh -c 'echo $1 >> .gitignore' -
+    ignored = !cat .gitignore
+    lod = log --all --color --graph --pretty=format:'%Cred%h%Creset --%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date-order
+    c = commit
+    m = merge --no-ff
+    co = checkout
+    cb = checkout -b
+    cd = branch -d
+
+[color]
+    ui = always
