@@ -14,7 +14,7 @@ end
 call plug#begin('~/.config/nvim/plugged/')
 " GUI
 Plug 'airblade/vim-gitgutter'
-Plug 'mhartington/oceanic-next'
+Plug 'morhetz/gruvbox'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -99,9 +99,11 @@ syntax on
 filetype plugin indent on
 set t_Co=256
 set termguicolors
-let g:airline_theme='oceanicnext'
-let g:airline_powerline_fonts = 1
-colorscheme OceanicNext
+let g:airline_theme='gruvbox'
+let g:airline_powerline_fonts=1
+set background=dark
+let g:gruvbox_contrast_dark='hard'
+colorscheme gruvbox
 " Highlight current line and column
 set cursorline
 set cursorcolumn
@@ -201,8 +203,8 @@ nmap gdl :diffget //3<CR>
 " Airline plugin
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
-let airline#extensions#ale#error_symbol = '✘ '
-let airline#extensions#ale#warning_symbol = '⚠ '
+let airline#extensions#ale#error_symbol = ' '
+let airline#extensions#ale#warning_symbol = ' '
 " IndentLine plugin
 let g:indentLine_fileTypeExclude = ['text', 'sh', 'help', 'terminal']
 let g:indentLine_bufNameExclude = ['NERD_tree.*', 'term:.*']
@@ -236,8 +238,8 @@ let g:ale_fixers = {
   \  'javascript': ['prettier', 'eslint'],
   \  'typescript': ['prettier', 'tsserver'],
   \}
-let g:ale_sign_error = '✘'
-let g:ale_sign_warning = '⚠'
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
 let g:python_host_prog = expand('~/.pyenv/versions/neovim-python2/bin/python')
 let g:python3_host_prog = expand('~/.pyenv/versions/neovim-python3/bin/python3')
 let g:ale_python_pycodestyle_executable = expand('~/.pyenv/versions/neovim-python3/bin/pycodestyle')
