@@ -221,7 +221,8 @@ bindsym $mod+c exec code
 bindsym $mod+Control+v exec vlc
 bindsym $mod+z gaps outer current plus 5
 bindsym $mod+Shift+z gaps outer current minus 5
-bindsym Print exec xfce4-screenshooter
+bindsym Print exec --no-startup-id scrot -d 1 '%Y-%m-%d_%H-%M-%S_scrot.png' -e 'mv $f ~/Pictures/Screenhots'
+bindsym --release Shift+Print exec --no-startup-id scrot -s '%Y-%m-%d_%H-%M-%S_scrot.png' -e 'mv $f ~/Pictures/Screenhots'
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
