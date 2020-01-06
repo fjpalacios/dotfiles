@@ -1,8 +1,8 @@
 [Added Associations]
 application/pdf=org.pwmt.zathura.desktop;org.gnome.Evince.desktop;
 image/vnd.adobe.photoshop=gimp.desktop;
-image/png=gpicview.desktop;
-image/jpeg=gpicview.desktop;
+image/png=sxiv.desktop;
+image/jpeg=sxiv.desktop;
 
 [Default Applications]
 text/html=firefox.desktop
