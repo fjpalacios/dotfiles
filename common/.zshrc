@@ -43,6 +43,11 @@ then
     alias pbcopy="xclip -selection c"
     alias pbpaste="xclip -selection c -o"
     export PATH="$HOME/.rbenv/bin:$PATH"
+
+    if [ -n "$DESKTOP_SESSION" ]; then
+        eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
+        export SSH_AUTH_SOCK
+    fi
 fi
 
 if [[ `uname` == "Darwin" ]]
