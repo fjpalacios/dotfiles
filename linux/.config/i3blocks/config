@@ -21,7 +21,7 @@ signal=10
 separator=false
 
 [memory]
-label= 
+label= 
 interval=30
 separator=false
 
@@ -38,8 +38,8 @@ signal=10
 separator=false
 
 [weather]
-label= 
-command=curl -Ss 'https://wttr.in?format=1' | cut -c 7- | xargs echo
+label= 
+command=curl -Ss 'https://wttr.in?format=1' | cut -c 7- | grep -Eo -e '-?[[:digit:]].*'
 interval=3600
 separator=false
 
