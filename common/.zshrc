@@ -45,7 +45,7 @@ then
     export PATH="$HOME/.rbenv/bin:$PATH"
 
     if [ -n "$DESKTOP_SESSION" ]; then
-        eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
+        eval $(gnome-keyring-daemon --start)
         export SSH_AUTH_SOCK
     fi
 fi
