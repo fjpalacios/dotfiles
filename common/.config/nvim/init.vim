@@ -146,11 +146,11 @@ nmap <Space> :noh<CR>
 " Remove extra whitespace
 nmap <Leader><Space> :%s/\s\+$<CR>
 " Run tests
-nmap <Silent> t<C-n> :TestNearest<CR>
-nmap <Silent> t<C-f> :TestFile<CR>
-nmap <Silent> t<C-s> :TestSuite<CR>
-nmap <Silent> t<C-l> :TestLast<CR>
-nmap <Silent> t<C-g> :TestVisit<CR>
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>
 " Format selected region
 vmap <Leader>fs <Plug>(coc-format-selected)
 nmap <Leader>fs <Plug>(coc-format-selected)
@@ -162,18 +162,18 @@ nmap <Leader>ac <Plug>(coc-codeaction)
 xmap <Leader>a <Plug>(coc-codeaction-selected)
 nmap <Leader>a <Plug>(coc-codeaction-selected)
 " Select selections ranges
-nmap <Silent> <C-d> <Plug>(coc-range-select)
-xmap <Silent> <C-d> <Plug>(coc-range-select)
+nmap <silent> <C-d> <Plug>(coc-range-select)
+xmap <silent> <C-d> <Plug>(coc-range-select)
 " Fix problem of current line
 nmap <Leader>qf <Plug>(coc-fix-current)
 " Use `[g` and `]g` to navigate diagnostics
-nmap <Silent> [g <Plug>(coc-diagnostic-prev)
-nmap <Silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 " Keys for gotos
-nmap <Silent> gd <Plug>(coc-definition)
-nmap <Silent> gy <Plug>(coc-type-definition)
-nmap <Silent> gi <Plug>(coc-implementation)
-nmap <Silent> gr <Plug>(coc-references)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 " Rename current word
 nmap <F2> <Plug>(coc-rename)
 " NERDTree
