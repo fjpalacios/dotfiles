@@ -22,9 +22,6 @@ chpwd() {
 alias gcmsg='comm() { git commit -m "$(getGitBranch) | $1" }; comm'
 alias gcmsgnv='comm() { git commit -m "$(getGitBranch) | $1" --no-verify }; comm'
 alias ggpushf='ggpush --force'
-alias gcd='gco development || gco develop'
-alias grbd='git rebase development || git rebase develop'
-alias gcbd='gcbd() { gcd && ggpull && git checkout -b $1 development && ggpush }; gcbd'
 
 getGitBranch() {
   git symbolic-ref HEAD | cut -d'/' -f3
