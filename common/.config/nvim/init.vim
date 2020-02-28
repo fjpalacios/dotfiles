@@ -222,7 +222,7 @@ let g:vcoolor_map = '<C-g>'
 let g:coc_global_extensions = [
   \ 'coc-html', 'coc-css', 'coc-json', 'coc-prettier', 'coc-emmet', 'coc-snippets',
   \ 'coc-angular', 'coc-highlight', 'coc-python', 'coc-solargraph', 'coc-vetur',
-  \ 'coc-phpls', 'coc-docker'
+  \ 'coc-phpls', 'coc-docker', 'coc-tsserver'
   \ ]
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 command! -nargs=0 Format :call CocAction('format')
@@ -256,3 +256,5 @@ function! RipgrepFzf(query, fullscreen)
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
+" Resolve properly Vue relative paths
+set includeexpr=substitute(v:fname,'\\~','.','g')
