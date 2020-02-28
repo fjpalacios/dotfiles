@@ -143,7 +143,7 @@ bindsym $mod+p move workspace to output right
 bindsym $mod+shift+p move workspace to output left
 
 # Reload the configuration file
-bindsym $mod+Shift+c reload
+# bindsym $mod+Shift+c reload
 
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
@@ -233,6 +233,7 @@ bindsym $mod+z gaps outer current plus 5
 bindsym $mod+Shift+z gaps outer current minus 5
 bindsym Print exec --no-startup-id scrot -d 1 '%Y-%m-%d_%H-%M-%S_scrot.png' -e 'mv $f ~/Pictures/Screenshots'
 bindsym --release Shift+Print exec --no-startup-id scrot -s '%Y-%m-%d_%H-%M-%S_scrot.png' -e 'mv $f ~/Pictures/Screenshots'
+bindsym $mod+Shift+c exec clipster -sc
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -247,3 +248,4 @@ exec --no-startup-id pa-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id imwheel
 exec --no-startup-id dunst
+exec --no-startup-id clipster -d
