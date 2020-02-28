@@ -23,7 +23,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Yggdroot/indentLine'
 " Syntax
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
-Plug 'sheerun/vim-polyglot'
 Plug 'w0rp/ale'
 " Tools
 Plug 'alvan/vim-closetag'
@@ -184,6 +183,7 @@ nmap <Leader>nf :NERDTreeFind<CR>
 nmap <Leader>rn :set invrelativenumber<CR>
 " Easy save
 nmap <Leader>w :update<CR>
+nmap <Leader>W :wa<CR>
 " Markdown preview
 nmap <Leader>mp <Plug>MarkdownPreviewToggle
 " fzf
@@ -222,7 +222,7 @@ let g:vcoolor_map = '<C-g>'
 let g:coc_global_extensions = [
   \ 'coc-html', 'coc-css', 'coc-json', 'coc-prettier', 'coc-emmet', 'coc-snippets',
   \ 'coc-angular', 'coc-highlight', 'coc-python', 'coc-solargraph', 'coc-vetur',
-  \ 'coc-phpls'
+  \ 'coc-phpls', 'coc-docker'
   \ ]
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 command! -nargs=0 Format :call CocAction('format')
