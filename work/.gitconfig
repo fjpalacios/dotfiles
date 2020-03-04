@@ -1,9 +1,9 @@
 [core]
-	editor = nvim
+    editor = nvim
 
 [user]
     name = Javi Palacios
-    email = fpalacios@avantio.com
+    email = francisco.javier.palacios@onestic.com
 
 [alias]
     this = !git init && git add . && git commit -m \"Initial commit\"
