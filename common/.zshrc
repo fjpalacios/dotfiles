@@ -65,3 +65,5 @@ export NVM_DIR="$HOME/.nvm"
 if type ag &> /dev/null; then
     export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
