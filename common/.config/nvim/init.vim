@@ -122,6 +122,8 @@ call matchadd('Trail', '\s\+$', 100)
 highlight Visual cterm=bold ctermbg=Darkgrey
 " Highlight conflicts
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+" Enable mouse wheel
+set mouse=a
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom shortcuts
