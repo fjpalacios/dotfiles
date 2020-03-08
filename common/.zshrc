@@ -56,7 +56,7 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 chpwd() {
-  ls
+  ls -a
 }
 
 export NVM_DIR="$HOME/.nvm"
