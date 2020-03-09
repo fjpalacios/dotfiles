@@ -246,6 +246,7 @@ let g:ale_python_pycodestyle_executable = expand('~/.pyenv/versions/neovim-pytho
 let g:ale_python_flake8_executable = expand('~/.pyenv/versions/neovim-python3/bin/flake8')
 let g:ale_python_pylint_executable = expand('~/.pyenv/versions/neovim-python3/bin/pylint')
 let g:ale_python_autopep8_executable = expand('~/.pyenv/versions/neovim-python3/bin/autopep8')
+autocmd FileType python let b:coc_root_patterns = ['setup.py', 'env', 'requirements.txt']
 " fzf
 set rtp+=/usr/local/opt/fzf
 function! RipgrepFzf(query, fullscreen)
