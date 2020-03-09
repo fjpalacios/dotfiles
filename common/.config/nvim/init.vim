@@ -30,6 +30,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 Plug 'janko-m/vim-test'
 Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'scrooloose/nerdcommenter'
@@ -121,6 +122,8 @@ call matchadd('Trail', '\s\+$', 100)
 highlight Visual cterm=bold ctermbg=Darkgrey
 " Highlight conflicts
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+" Enable mouse wheel
+set mouse=a
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom shortcuts
