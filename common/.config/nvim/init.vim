@@ -195,9 +195,9 @@ nmap <Leader>t :Rg<Space>
 nmap <Leader>h :History<CR>
 nmap <Leader>b :Buffers<CR>
 " Fugitive
-nmap <Leader>gd :Gvdiff<CR>
-nmap gdh :diffget //2<CR>
-nmap gdl :diffget //3<CR>
+nmap <Leader>gd :Gvdiffsplit!<CR>
+nmap gdh :diffget //2 <bar> diffupdate<CR>
+nmap gdl :diffget //3 <bar> diffupdate<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins' config
