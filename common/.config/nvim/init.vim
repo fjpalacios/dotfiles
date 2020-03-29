@@ -140,8 +140,8 @@ nmap <C-k> <C-w><C-k>
 nmap <C-l> <C-w><C-l>
 nmap <C-h> <C-w><C-h>
 " Switch between buffers
-nmap <C-n> :bnext<CR>
-nmap <C-p> :bprev<CR>
+nmap <Tab> :bnext<CR>
+nmap <S-Tab> :bprev<CR>
 nmap <C-c> :bdelete!<CR>
 " Clear highlighted search
 nmap <Space> :noh<CR>
@@ -198,6 +198,9 @@ nmap <Leader>b :Buffers<CR>
 nmap <Leader>gd :Gvdiffsplit!<CR>
 nmap gdh :diffget //2 <bar> diffupdate<CR>
 nmap gdl :diffget //3 <bar> diffupdate<CR>
+" ALE
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins' config
