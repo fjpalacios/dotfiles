@@ -26,6 +26,7 @@ Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 Plug 'w0rp/ale'
 " Tools
 Plug 'alvan/vim-closetag'
+Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 Plug 'janko-m/vim-test'
@@ -55,9 +56,8 @@ set noswapfile
 " Persist undo history between file editing sessions.
 set undofile
 set undodir=~/.config/nvim/undodir
-" Show relative line numbers
+" Show line numbers
 set number
-set relativenumber
 " Turn on line wrapping
 set wrap
 set textwidth=80
@@ -144,7 +144,9 @@ nmap <Tab> :bnext<CR>
 nmap <S-Tab> :bprev<CR>
 nmap <C-c> :bdelete!<CR>
 " Clear highlighted search
-nmap <Space> :noh<CR>
+nmap <Leader>/ :noh<CR>
+" EasyMotion movement
+map <Space> <Plug>(easymotion-overwin-f2)
 " Remove extra whitespace
 nmap <Leader><Space> :%s/\s\+$<CR>
 " Run tests
