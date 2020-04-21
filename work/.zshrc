@@ -1,6 +1,7 @@
 export ZSH=~/.oh-my-zsh
 export PATH="/usr/local/bin:${PATH}"
 export PATH=~/.local/bin:$PATH
+PATH=${PATH}:$(go env GOPATH)/bin
 ZSH_THEME="elessar"
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting docker docker-compose)
 source $ZSH/oh-my-zsh.sh
@@ -12,13 +13,16 @@ alias weather='wthr() { curl -H "Accept-Language: es" http://wttr.in/"$1" }; wth
 alias co='cd ~/Code'
 alias on='cd ~/Code/onestic'
 
-alias webserver='python -m http.server 8000'
+alias webserver='python3 -m http.server 8000'
 
 alias tls='tmux list-sessions'
 alias ta='tmux attach -t'
 alias tm='tmux attach || tmux new -s main'
 alias tk='tmux kill-session -t'
 alias tn='tmux new -s'
+alias ts2='tmux split-window -v -p 30; tmux split-window -h -p 50'
+alias ts3='tmux split-window -v -p 30; tmux split-window -h -p 66; tmux split-window -h -p 50'
+alias csvview='csvv() { column -s, -t -n "$1" | less -F -S -X -K }; csvv'
 
 chpwd() {
   ls
