@@ -1,4 +1,5 @@
 {
+    "diagnostic.enable": false,
     "python.jediEnabled": false,
     "languageserver": {
     "terraform": {

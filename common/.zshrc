@@ -35,7 +35,8 @@ alias ta='tmux attach -t'
 alias tm='tmux attach || tmux new -s main'
 alias tk='tmux kill-session -t'
 alias tn='tmux new -s'
-alias ts='tmux split-window -v -p 30; tmux split-window -h -p 50'
+alias ts2='tmux split-window -v -p 30; tmux split-window -h -p 50'
+alias ts3='tmux split-window -v -p 30; tmux split-window -h -p 66; tmux split-window -h -p 50'
 
 alias webserver='python -m http.server 8000'
 
