@@ -267,3 +267,8 @@ endfunction
 command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
 " Resolve properly Vue relative paths
 set includeexpr=substitute(v:fname,'\\~','.','g')
+" Filetypes reassignment
+autocmd BufRead,BufNewFile *.tf set filetype=terraform
+autocmd BufRead,BufNewFile *.tfvars set filetype=terraform
+autocmd BufRead,BufNewFile *.tfstate set filetype=json
+autocmd BufRead,BufNewFile *.tfstate.backup set filetype=json
