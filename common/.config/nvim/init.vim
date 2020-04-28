@@ -41,6 +41,7 @@ Plug 'tmhedberg/SimpylFold'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'zivyangll/git-blame.vim'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -214,6 +215,8 @@ nmap gdl :diffget //3 <bar> diffupdate<CR>
 " ALE
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+" Git Blame
+nmap <Leader>s :call gitblame#echo()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins' config
