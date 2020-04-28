@@ -23,11 +23,13 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Yggdroot/indentLine'
 " Syntax
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'sheerun/vim-polyglot'
 Plug 'w0rp/ale'
 " Tools
 Plug 'alvan/vim-closetag'
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'godlygeek/tabular'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 Plug 'janko-m/vim-test'
 Plug 'jiangmiao/auto-pairs'
