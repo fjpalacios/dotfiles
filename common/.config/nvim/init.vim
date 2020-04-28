@@ -182,6 +182,15 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 " Rename current word
 nmap <F2> <Plug>(coc-rename)
+" Show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 " NERDTree
 nmap <Leader>nn :NERDTreeToggle<CR>
 nmap <Leader>nb :NERDTreeFromBookmark
@@ -239,15 +248,20 @@ command! -nargs=0 Format :call CocAction('format')
 " Ale
 let g:ale_linters = {
   \ 'python': ['pycodestyle', 'flake8', 'pylint'] ,
-  \ 'typescript': ['tsserver'] ,
+  \ 'typescript': ['eslint'] ,
   \ 'javascript': ['prettier', 'eslint', 'xo'],
+  \ 'scss': ['stylelint'],
+  \ 'css': ['stylelint'],
   \ }
 let g:ale_fixers = {
   \  'python': ['yapf', 'autopep8'],
   \  'ruby': ['rubocop'],
   \  'javascript': ['prettier', 'eslint'],
-  \  'typescript': ['prettier', 'tsserver'],
+  \  'typescript': ['prettier', 'eslint'],
+  \  'scss': ['stylelint'],
+  \  'css': ['stylelint'],
   \}
+let g:ale_fix_on_save = 1
 let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
 let g:python_host_prog = expand('~/.pyenv/versions/neovim-python2/bin/python')
@@ -257,6 +271,7 @@ let g:ale_python_flake8_executable = expand('~/.pyenv/versions/neovim-python3/bi
 let g:ale_python_pylint_executable = expand('~/.pyenv/versions/neovim-python3/bin/pylint')
 let g:ale_python_autopep8_executable = expand('~/.pyenv/versions/neovim-python3/bin/autopep8')
 autocmd FileType python let b:coc_root_patterns = ['setup.py', 'env', 'requirements.txt']
+autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 " fzf
 set rtp+=/usr/local/opt/fzf
 function! RipgrepFzf(query, fullscreen)
