@@ -267,6 +267,7 @@ let g:ale_fixers = {
   \  'typescript': ['prettier', 'eslint'],
   \  'scss': ['stylelint'],
   \  'css': ['stylelint'],
+  \  'terraform': ['terraform']
   \}
 let g:ale_fix_on_save = 1
 let g:ale_sign_error = ''
