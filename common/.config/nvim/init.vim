@@ -23,6 +23,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Yggdroot/indentLine'
 " Syntax
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'saltstack/salt-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'w0rp/ale'
 " Tools
@@ -292,3 +293,4 @@ autocmd BufRead,BufNewFile *.tf set filetype=terraform
 autocmd BufRead,BufNewFile *.tfvars set filetype=terraform
 autocmd BufRead,BufNewFile *.tfstate set filetype=json
 autocmd BufRead,BufNewFile *.tfstate.backup set filetype=json
+autocmd BufRead,BufNewFile *.map set filetype=yaml
