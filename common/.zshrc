@@ -1,5 +1,6 @@
 export ZSH=~/.oh-my-zsh
 export EDITOR=nvim
+export PATH=$PATH:$(go env GOPATH)/bin:$(go env GOROOT)/bin
 
 ZSH_THEME="elessar"
 HIST_STAMPS="dd/mm/yyyy"
