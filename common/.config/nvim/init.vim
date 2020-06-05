@@ -24,6 +24,7 @@ Plug 'Yggdroot/indentLine'
 " Syntax
 Plug 'fatih/vim-go'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'saltstack/salt-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'w0rp/ale'
 " Tools
@@ -218,6 +219,9 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " Git Blame
 nmap <Leader>s :call gitblame#echo()<CR>
+" Move faster up/down blocks of selected text
+vmap J :m '>+1<CR>gv=gv
+vmap K :m '<-2<CR>gv=gv
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins' config
@@ -266,6 +270,7 @@ let g:ale_fixers = {
   \  'scss': ['stylelint'],
   \  'css': ['stylelint'],
   \  'go': ['gofmt', 'goimports'],
+  \  'terraform': ['terraform'],
   \}
 let g:ale_fix_on_save = 1
 let g:ale_sign_error = ''
@@ -297,3 +302,4 @@ autocmd BufRead,BufNewFile *.tf set filetype=terraform
 autocmd BufRead,BufNewFile *.tfvars set filetype=terraform
 autocmd BufRead,BufNewFile *.tfstate set filetype=json
 autocmd BufRead,BufNewFile *.tfstate.backup set filetype=json
+autocmd BufRead,BufNewFile *.map set filetype=yaml

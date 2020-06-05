@@ -25,6 +25,17 @@ alias ts2='tmux split-window -v -p 30; tmux split-window -h -p 50'
 alias ts3='tmux split-window -v -p 30; tmux split-window -h -p 66; tmux split-window -h -p 50'
 alias csvview='csvv() { column -s, -t -n "$1" | less -F -S -X -K }; csvv'
 
+alias gcmsg='comm() { git commit -m "$(getGitBranch) $1" }; comm'
+alias gcb='gcb() { git checkout -b "$1"-"$(replaceSpacesWithUnderscores $2)" }; gcb'
+
+replaceSpacesWithUnderscores() {
+    echo $1 | tr " " "_"
+}
+
+getGitBranch() {
+    git symbolic-ref HEAD | cut -d'/' -f3 | cut -d'-' -f1,2
+}
+
 chpwd() {
   ls
 }
@@ -43,3 +54,4 @@ if type ag &> /dev/null; then
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(rbenv init -)"
