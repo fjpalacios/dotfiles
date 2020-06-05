@@ -22,6 +22,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Yggdroot/indentLine'
 " Syntax
+Plug 'fatih/vim-go'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
 Plug 'w0rp/ale'
@@ -255,6 +256,7 @@ let g:ale_linters = {
   \ 'javascript': ['prettier', 'eslint', 'xo'],
   \ 'scss': ['stylelint'],
   \ 'css': ['stylelint'],
+  \ 'go': ['gopls'],
   \ }
 let g:ale_fixers = {
   \  'python': ['yapf', 'autopep8'],
@@ -263,6 +265,7 @@ let g:ale_fixers = {
   \  'typescript': ['prettier', 'eslint'],
   \  'scss': ['stylelint'],
   \  'css': ['stylelint'],
+  \  'go': ['gofmt', 'goimports'],
   \}
 let g:ale_fix_on_save = 1
 let g:ale_sign_error = ''
@@ -285,6 +288,8 @@ function! RipgrepFzf(query, fullscreen)
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
+" vim-go
+let g:go_def_mapping_enabled = 0
 " Resolve properly Vue relative paths
 set includeexpr=substitute(v:fname,'\\~','.','g')
 " Filetypes reassignment
