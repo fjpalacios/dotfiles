@@ -1,9 +1,10 @@
 export ZSH=~/.oh-my-zsh
-export PATH="/usr/local/bin:${PATH}"
-export PATH=~/.local/bin:$PATH
-PATH=${PATH}:$(go env GOPATH)/bin
+export PATH=$PATH:/usr/local/bin:~/.local/bin
+export PATH=$PATH:$(go env GOPATH)/bin:$(go env GOROOT)/bin
+
 ZSH_THEME="elessar"
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting docker docker-compose)
+
 source $ZSH/oh-my-zsh.sh
 
 alias v='nvim'
