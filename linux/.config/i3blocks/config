@@ -13,6 +13,12 @@ separator_block_width=15
 markup=none
 
 # Blocks
+[kbdd_layout]
+label= 
+interval=1
+command=setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}'
+separator=false
+
 [volume]
 label= 
 instance=Master
@@ -55,6 +61,6 @@ separator=false
 
 [time]
 label= 
-command=date '+%d-%m-%Y | %H:%M:%S'; [[ -z "${BLOCK_BUTTON}" ]] || LANG=en_GB.UTF-8 gsimplecal &
+command=bash ~/.config/i3/calendar.sh
 interval=1
 separator=false

@@ -1,5 +1,8 @@
 export ZSH=~/.oh-my-zsh
 export EDITOR=nvim
+export PATH=$PATH:/usr/local/go/bin
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH=$PATH:$(go env GOPATH)/bin:$(go env GOROOT)/bin
 
 ZSH_THEME="elessar"
@@ -44,7 +47,7 @@ alias webserver='python -m http.server 8000'
 if [[ `uname` == "Linux" ]]
 then
     alias pach='sudo pacman -Rns $(pacman -Qtdq)'
-    alias update='sudo pacman -Syyu; yay -Syyu; pach; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup; pyu'
+    alias update='sudo apt update; sudo apt upgrade; sudo apt autoremove; npm install npm -g; npm update -g; gem update --system; gem update; gem cleanup; pyu'
     alias pbcopy="xclip -selection c"
     alias pbpaste="xclip -selection c -o"
     export PATH="$HOME/.rbenv/bin:$PATH"

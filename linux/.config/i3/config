@@ -234,6 +234,7 @@ bindsym $mod+Shift+z gaps outer current minus 5
 bindsym Print exec --no-startup-id scrot -d 1 '%Y-%m-%d_%H-%M-%S_scrot.png' -e 'mv $f ~/Pictures/Screenshots'
 bindsym --release Shift+Print exec --no-startup-id scrot -s '%Y-%m-%d_%H-%M-%S_scrot.png' -e 'mv $f ~/Pictures/Screenshots'
 bindsym $mod+Shift+c exec clipster -sc
+bindsym $mod+space exec bash ~/.config/i3/i3-keyboard-layout cycle us es
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -249,3 +250,4 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id imwheel
 exec --no-startup-id dunst
 exec --no-startup-id clipster -d
+exec --no-startup-id bash ~/.config/i3/i3-keyboard-layout set us
