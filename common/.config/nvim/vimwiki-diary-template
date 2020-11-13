@@ -1,0 +1,13 @@
+#!/usr/bin/python3
+
+import sys
+import datetime
+
+template = """# {date}
+
+## Notas
+- """
+
+date = datetime.date.today().strftime("%d/%m/%Y")
+
+print(template.format(date=date))

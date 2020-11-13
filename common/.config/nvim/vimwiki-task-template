@@ -1,0 +1,23 @@
+#!/usr/bin/python3
+
+import sys
+
+template = """# {task}
+
+key    | value
+---    | ---
+master | 
+server | 
+repos  | 
+branch | 
+task   | 
+
+## TODO
+- [ ] Tarea
+
+
+## Notas
+- """
+
+task = sys.argv[1].rsplit("/")[-1].replace('task-', '').replace('.md', '')
+print(template.format(task=task))

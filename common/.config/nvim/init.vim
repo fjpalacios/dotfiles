@@ -22,7 +22,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Yggdroot/indentLine'
 " Syntax
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'neoclide/coc.nvim'
 Plug 'saltstack/salt-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'w0rp/ale'
@@ -36,12 +36,15 @@ Plug 'janko-m/vim-test'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-easy-align'
 Plug 'KabbAmine/vCoolor.vim'
+Plug 'mattn/calendar-vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tmhedberg/SimpylFold'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'vimwiki/vimwiki'
 Plug 'zivyangll/git-blame.vim'
 call plug#end()
 
@@ -60,8 +63,8 @@ set noswapfile
 " Persist undo history between file editing sessions.
 set undofile
 set undodir=~/.config/nvim/undodir
-" Show line numbers
-set number
+" Show relative line numbers
+set number relativenumber
 " Turn on line wrapping
 set wrap
 set textwidth=80
@@ -221,6 +224,8 @@ nmap <Leader>s :call gitblame#echo()<CR>
 " Move faster up/down blocks of selected text
 vmap J :m '>+1<CR>gv=gv
 vmap K :m '<-2<CR>gv=gv
+" Align GitHub-flavored Markdown tables
+vmap <Leader><Bar> :EasyAlign*<Bar><Enter>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins' config
@@ -292,6 +297,19 @@ endfunction
 command! -nargs=* -bang Rg call RipgrepFzf(<q-args>, <bang>0)
 " Resolve properly Vue relative paths
 set includeexpr=substitute(v:fname,'\\~','.','g')
+" Vimwiki
+let g:vimwiki_list = [
+  \{
+  \  'path': '~/Notes',
+  \  'syntax': 'markdown',
+  \  'ext': '.md',
+  \  'auto_diary_index': 1,
+  \}
+\]
+autocmd BufNewFile ~/Notes/**/diary/*-*-*.md :silent 0r !~/.config/nvim/vimwiki-diary-template '%'
+autocmd BufNewFile ~/Notes/**/task-*.md :silent 0r !~/.config/nvim/vimwiki-task-template '%'
+" Calendar
+let g:calendar_monday = 1
 " Filetypes reassignment
 autocmd BufRead,BufNewFile *.tf set filetype=terraform
 autocmd BufRead,BufNewFile *.tfvars set filetype=terraform
