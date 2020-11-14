@@ -123,7 +123,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # Assign apps to workspaces
-assign [class="firefox"] $ws1
+assign [class="Firefox"] $ws1
 assign [class="Chromium"] $ws1
 assign [class="TelegramDesktop"] $ws3
 assign [class="whats-app-nativefier*"] $ws3
