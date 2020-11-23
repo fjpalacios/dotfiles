@@ -8,6 +8,7 @@ template = """# {date}
 ## Notas
 - """
 
-date = datetime.date.today().strftime("%d/%m/%Y")
+file_name = sys.argv[1].rsplit("/")[-1].replace('.md', '')
+date = datetime.datetime.strptime(file_name, "%Y-%m-%d")
 
-print(template.format(date=date))
+print(template.format(date=date.strftime("%d/%m/%Y")))
