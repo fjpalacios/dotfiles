@@ -34,7 +34,7 @@ bindsym $mod+Shift+q kill
 
 # Start dmenu (a program launcher)
 bindsym $mod+d exec rofi -show run -theme Gruvbox-Dark-Hard
-bindsym $mod+Shift+d exec rofi -show window -theme Gruvbox-Dark-Hard
+bindsym $mod+Shift+d exec rofi -show drun -theme Gruvbox-Dark-Hard
 
 # Change focus (vim keys)
 bindsym $mod+h focus left
