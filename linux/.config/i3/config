@@ -132,10 +132,12 @@ for_window [title="Hangouts"] move container to workspace $ws3
 assign [class="code-oss"] $ws2
 assign [class="Thunar"] $ws4
 assign [class="ranger"] $ws4
+assign [class="Filezilla"] $ws4
 for_window [class="Spotify"] move to workspace $ws10
 
 # Enable floating window for some apps
 for_window [class="Gnome-calculator"] floating enable
+for_window [class="Tor Browser"] floating enable
 for_window [window_role="pop-up"] floating enable
 
 # Move workspaces between screens
